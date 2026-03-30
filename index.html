@@ -780,7 +780,7 @@ h2.display em { font-style: italic; color: var(--ink-60); }
             </div>
             <div class="form-group form-group--full">
               <label class="form-label" for="f-url">Website URL</label>
-              <input class="form-input" type="url" id="f-url" name="url" placeholder="https://yourbusiness.com" required autocomplete="url">
+              <input class="form-input" type="text" id="f-url" name="url" placeholder="yourbusiness.com" required autocomplete="url">
             </div>
             <div class="form-group form-group--full">
               <label class="form-label" for="f-context">Anything you want us to focus on? <span class="form-label-opt">(optional)</span></label>
@@ -831,10 +831,14 @@ async function submitAuditForm(e) {
   btn.disabled = true;
   err.style.display = 'none';
 
+  // Normalise URL — accept bare domains like "golfranch.com" or "www.golfranch.com"
+  let rawUrl = document.getElementById('f-url').value.trim();
+  if (rawUrl && !/^https?:\/\//i.test(rawUrl)) rawUrl = 'https://' + rawUrl;
+
   const data = {
     name: document.getElementById('f-name').value,
     email: document.getElementById('f-email').value,
-    url: document.getElementById('f-url').value,
+    url: rawUrl,
     context: document.getElementById('f-context').value,
     submitted: new Date().toISOString()
   };
