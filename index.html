@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Is Your Website Holding Your Business Back?</title>
+<title>Calibrate — Find What's Killing Your Conversions</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,16 +43,6 @@ body {
 /* ── LAYOUT ── */
 .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
 
-/* ── ANN BAR ── */
-.ann-bar {
-  background: var(--green);
-  padding: 11px 20px; text-align: center;
-  font-size: 13px; font-weight: 500; color: var(--green-text);
-  letter-spacing: 0.01em;
-}
-.ann-bar a { color: var(--lavender); text-decoration: none; font-weight: 600; }
-.ann-bar a:hover { text-decoration: underline; }
-
 /* ── NAV ── */
 nav {
   background: var(--cream);
@@ -89,7 +79,7 @@ nav {
 }
 .hero h1 {
   font-family: 'DM Serif Display', serif;
-  font-size: clamp(44px, 8vw, 80px);
+  font-size: clamp(40px, 7.5vw, 72px);
   line-height: 1.06; letter-spacing: -0.02em;
   color: var(--ink); margin-bottom: 24px;
 }
@@ -97,50 +87,72 @@ nav {
 .hero h1 .solid { color: var(--ink); }
 .hero-sub {
   font-size: 18px; color: var(--ink-60);
-  max-width: 500px; margin: 0 auto 40px;
+  max-width: 520px; margin: 0 auto 40px;
   line-height: 1.65; font-weight: 400;
 }
 .hero-sub strong { color: var(--ink); font-weight: 600; }
 
-/* pill button pair */
-.btn-pair { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.btn-outline {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: transparent; color: var(--ink);
-  font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif;
-  padding: 14px 32px; border-radius: var(--radius-btn);
-  border: 1.5px solid rgba(26,26,20,0.25); text-decoration: none;
-  transition: all 0.15s; letter-spacing: -0.01em;
+/* ── URL INPUT ── */
+.url-input-wrap {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid var(--rule);
+  background: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.btn-outline:hover { border-color: var(--ink-60); background: rgba(26,26,20,0.04); }
-.btn-filled {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--lavender-bg); color: var(--ink);
-  font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif;
-  padding: 14px 32px; border-radius: var(--radius-btn);
-  border: 1.5px solid rgba(139,112,208,0.3); text-decoration: none;
-  transition: all 0.15s; letter-spacing: -0.01em;
+.url-input-wrap:focus-within {
+  border-color: var(--lavender-dark);
+  box-shadow: 0 0 0 3px rgba(139,112,208,0.12);
 }
-.btn-filled:hover { background: var(--lavender); }
+.url-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: transparent;
+  min-width: 0;
+}
+.url-input::placeholder { color: var(--ink-35); }
+.url-submit {
+  background: var(--lavender-bg);
+  color: var(--ink);
+  border: none;
+  padding: 16px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+  letter-spacing: -0.01em;
+}
+.url-submit:hover { background: var(--lavender); }
 .hero-note { margin-top: 18px; font-size: 12px; color: var(--ink-35); font-weight: 400; }
 
-/* ── STATS — floating dark card ── */
+/* ── STATS ── */
 .stats-card {
   margin: 0 24px 0;
-  background: var(--ink); border-radius: var(--radius-card);
+  background: var(--green); border-radius: var(--radius-card);
   padding: 40px 32px;
   display: grid; grid-template-columns: 1fr 1fr 1fr;
 }
 .stat { text-align: center; padding: 0 16px; }
-.stat + .stat { border-left: 1px solid rgba(255,255,255,0.08); }
+.stat + .stat { border-left: 1px solid var(--green-rule); }
 .stat .n {
   font-family: 'DM Serif Display', serif;
-  font-size: 44px; line-height: 1; color: white; letter-spacing: -0.02em;
+  font-size: 44px; line-height: 1; color: var(--green-text); letter-spacing: -0.02em;
 }
-.stat .n em { color: var(--lavender); font-style: normal; }
-.stat .l { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 6px; font-weight: 400; }
+.stat .n em { color: var(--green-text); font-style: normal; }
+.stat .l { font-size: 12px; color: var(--green-muted); margin-top: 6px; font-weight: 400; }
 
-/* ── TAG PILL ── (wisprflow annotation style) */
+/* ── TAG PILL ── */
 .tag-pill {
   display: inline-flex; align-items: center; gap: 5px;
   background: var(--amber); color: var(--ink);
@@ -165,7 +177,7 @@ h2.display {
 h2.display em { font-style: italic; color: var(--ink-60); }
 .section-sub { font-size: 16px; color: var(--ink-60); margin-bottom: 40px; font-weight: 400; }
 
-/* ── WHAT'S INCLUDED — dark floating card ── */
+/* ── HOW IT WORKS — dark card ── */
 .modules-section { padding: 72px 0; background: #f5f0e2; }
 .dark-card {
   background: var(--ink); border-radius: var(--radius-card);
@@ -192,27 +204,7 @@ h2.display em { font-style: italic; color: var(--ink-60); }
 .module-item p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
 .dark-card-cta { padding: 28px 36px; border-top: 1px solid rgba(255,255,255,0.07); }
 
-/* btn variants on dark */
-.btn-dark-outline {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: transparent; color: white;
-  font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif;
-  padding: 13px 28px; border-radius: var(--radius-btn);
-  border: 1.5px solid rgba(255,255,255,0.2); text-decoration: none;
-  transition: all 0.15s;
-}
-.btn-dark-outline:hover { border-color: rgba(255,255,255,0.5); }
-.btn-dark-filled {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--lavender-bg); color: var(--ink);
-  font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif;
-  padding: 13px 28px; border-radius: var(--radius-btn);
-  border: 1.5px solid transparent; text-decoration: none;
-  transition: all 0.15s;
-}
-.btn-dark-filled:hover { background: var(--lavender); }
-
-/* ── PROOF — wisprflow testimonial card style ── */
+/* ── PROOF ── */
 .proof-section { padding: 72px 0; background: #f5f0e2; }
 .proof-card {
   background: var(--green); border-radius: var(--radius-card);
@@ -257,12 +249,6 @@ h2.display em { font-style: italic; color: var(--ink-60); }
 }
 .case-co { font-size: 13px; color: rgba(255,255,255,0.45); }
 .case-body { padding: 32px; }
-.case-stat-big {
-  font-family: 'DM Serif Display', serif;
-  font-size: 64px; color: var(--lavender); line-height: 1;
-  letter-spacing: -0.03em; margin-bottom: 4px;
-}
-.case-stat-label { font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 24px; font-weight: 400; }
 .case-list { display: flex; flex-direction: column; gap: 10px; }
 .case-item {
   font-size: 13px; color: rgba(255,255,255,0.55);
@@ -303,47 +289,6 @@ h2.display em { font-style: italic; color: var(--ink-60); }
 .logo-pill { font-size: 10px; font-weight: 600; letter-spacing: 0.07em; color: var(--ink-35); background: rgba(26,26,20,0.05); border: 1px solid var(--rule); padding: 5px 12px; border-radius: var(--radius-btn); }
 .logo-pill.hl { color: var(--green); background: rgba(26,61,46,0.08); border-color: rgba(26,61,46,0.15); }
 
-/* ── OFFER — floating dark cards ── */
-.offer-section { padding: 72px 0; background: #f5f0e2; }
-.offer-header { text-align: center; margin-bottom: 32px; }
-.offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.offer-card {
-  background: var(--ink); border-radius: var(--radius-card);
-  padding: 28px 24px; display: flex; flex-direction: column;
-  position: relative;
-  border: 1.5px solid transparent;
-}
-.offer-card.mid { border-color: var(--lavender); }
-.offer-pop {
-  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
-  background: var(--lavender-bg); color: var(--ink);
-  font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 3px 12px; border-radius: var(--radius-btn); white-space: nowrap;
-}
-.offer-step { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 8px; }
-.offer-price {
-  font-family: 'DM Serif Display', serif;
-  font-size: 44px; line-height: 1; color: white; margin-bottom: 6px; letter-spacing: -0.02em;
-}
-.offer-price .free { color: var(--lavender); }
-.offer-desc { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 18px; line-height: 1.45; }
-.offer-card hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 0 0 16px; }
-.offer-list { list-style: none; flex: 1; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-.offer-list li { font-size: 12.5px; color: rgba(255,255,255,0.55); display: flex; gap: 7px; align-items: flex-start; line-height: 1.4; }
-.offer-list li.dim { color: rgba(255,255,255,0.18); }
-.ck { color: #7dd3a8; flex-shrink: 0; font-size: 11px; margin-top: 1px; }
-.cx { color: rgba(255,255,255,0.15); flex-shrink: 0; font-size: 11px; margin-top: 1px; }
-.offer-btn {
-  display: block; text-align: center; padding: 13px;
-  border-radius: var(--radius-btn); font-size: 13px; font-weight: 600;
-  text-decoration: none; letter-spacing: 0em; transition: all 0.15s;
-  white-space: nowrap; font-family: 'DM Sans', sans-serif;
-}
-.offer-btn.solid { background: var(--lavender-bg); color: var(--ink); }
-.offer-btn.solid:hover { background: var(--lavender); }
-.offer-btn.ghost { background: transparent; color: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.1); }
-.offer-btn.ghost:hover { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.6); }
-
 /* ── FAQ ── */
 .faq-section { padding: 72px 0; background: #f5f0e2; }
 .faq-section h2 {
@@ -369,24 +314,25 @@ h2.display em { font-style: italic; color: var(--ink-60); }
 /* ── FINAL CTA ── */
 .cta-section { padding: 0 0 0; background: #f5f0e2; }
 .cta-dark {
-  background: var(--ink); border-radius: var(--radius-card) var(--radius-card) 0 0;
+  background: var(--cream-2); border-radius: var(--radius-card) var(--radius-card) 0 0;
   padding: 72px 32px 80px; text-align: center;
+  border: 1px solid var(--rule); border-bottom: none;
 }
-.cta-dark .section-eyebrow { color: rgba(255,255,255,0.25); margin-bottom: 16px; }
+.cta-dark .section-eyebrow { color: var(--ink-35); margin-bottom: 16px; }
 .cta-dark h2 {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(36px, 6.5vw, 68px); line-height: 1.05;
-  letter-spacing: -0.02em; color: white; margin-bottom: 18px;
+  letter-spacing: -0.02em; color: var(--ink); margin-bottom: 18px;
 }
-.cta-dark h2 em { font-style: italic; color: var(--lavender); }
-.cta-dark p { font-size: 17px; color: rgba(255,255,255,0.45); max-width: 420px; margin: 0 auto 36px; line-height: 1.65; }
-.cta-dark p strong { color: rgba(255,255,255,0.85); font-weight: 600; }
-.cta-fine { margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.2); }
+.cta-dark h2 em { font-style: italic; color: #7c5cbf; }
+.cta-dark p { font-size: 17px; color: var(--ink-60); max-width: 460px; margin: 0 auto 36px; line-height: 1.65; }
+.cta-dark p strong { color: var(--ink); font-weight: 600; }
+.cta-fine { margin-top: 16px; font-size: 12px; color: var(--ink-35); }
 
-/* footer inside dark */
+/* footer */
 .cta-footer {
   background: var(--ink);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: none;
   padding: 24px 32px;
   display: flex; justify-content: space-between; align-items: center;
   max-width: 1040px; margin: 0 auto;
@@ -399,95 +345,67 @@ h2.display em { font-style: italic; color: var(--ink-60); }
 .foot-note { font-size: 11px; color: rgba(255,255,255,0.2); }
 
 /* ── CHARTS ── */
-.charts-section { padding: 72px 0 0; background: #f5f0e2; }
+.charts-section { padding: 72px 0 72px; background: var(--green); }
+.charts-section .section-eyebrow { color: var(--green-muted); }
+.charts-section h2.display { color: var(--green-text); }
+.charts-section h2.display em { color: var(--green-muted); }
+.charts-section .section-sub { color: var(--green-muted); }
 .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .chart-card {
-  background: var(--ink); border-radius: var(--radius-card);
+  background: var(--green-2); border-radius: var(--radius-card);
   padding: 24px 24px 20px;
 }
 .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 8px; }
-.chart-label { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
+.chart-label { font-size: 11px; font-weight: 600; color: var(--green-muted); letter-spacing: 0.06em; text-transform: uppercase; }
 .chart-canvas-wrap { position: relative; width: 100%; height: 180px; }
+
+/* ── RESPONSIVE ── */
 @media (max-width: 720px) {
   .charts-grid { grid-template-columns: 1fr; }
   .chart-canvas-wrap { height: 220px; }
-}
-
-@media (max-width: 720px) {
-  .offer-grid, .testi-grid { grid-template-columns: 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
   .module-grid { grid-template-columns: 1fr; }
   .module-item:nth-child(odd) { border-right: none; }
   .stats-card { grid-template-columns: 1fr; gap: 24px; }
-  .stat + .stat { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; }
+  .stat + .stat { border-left: none; border-top: 1px solid var(--green-rule); padding-top: 24px; }
   .nav-links a:not(.nav-cta) { display: none; }
   .cta-footer { flex-direction: column; gap: 10px; text-align: center; }
   .proof-grid { grid-template-columns: 1fr !important; }
+  .url-input-wrap { flex-direction: column; border-radius: 14px; }
+  .url-submit { border-radius: 0; }
 }
-
-/* ── FORM ── */
-.form-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
-  margin: 32px 0 20px; text-align: left;
-}
-.form-group { display: flex; flex-direction: column; gap: 6px; }
-.form-group--full { grid-column: 1 / -1; }
-.form-label { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-.form-label-opt { font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 11px; color: rgba(255,255,255,0.25); }
-.form-input {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 10px; padding: 13px 16px;
-  font-size: 15px; font-family: 'DM Sans', sans-serif;
-  color: white; outline: none; transition: border-color 0.15s, background 0.15s; width: 100%;
-}
-.form-input::placeholder { color: rgba(255,255,255,0.2); }
-.form-input:focus { border-color: rgba(196,175,240,0.5); background: rgba(255,255,255,0.09); }
-.form-textarea { resize: vertical; min-height: 88px; }
-.form-submit-row { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.form-error { font-size: 13px; color: #f87171; margin-top: 8px; }
-.success-icon {
-  width: 60px; height: 60px; border-radius: 50%;
-  background: rgba(196,175,240,0.15); border: 1px solid rgba(196,175,240,0.3);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 26px; color: #c4aff0; margin: 0 auto 20px;
-}
-@media (max-width: 580px) { .form-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
-<!-- ANN BAR -->
-<div class="ann-bar">
-  Limited free audits available — <a href="#get-audit">claim yours →</a>
-</div>
-
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Site<em>Audit</em></div>
+  <div class="nav-logo">Calibrate</div>
   <div class="nav-links">
-    <a href="#offer">Pricing</a>
+    <a href="#how">How it works</a>
     <a href="#proof">Results</a>
     <a href="#faq">FAQ</a>
-    <a href="#get-audit" class="nav-cta">Get Free Audit</a>
+    <a href="#run-audit" class="nav-cta">Run Free Audit</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-pre">Free website audit</div>
+    <div class="hero-pre">Free instant site audit</div>
     <h1>
-      <span class="ghost">Is your website</span><br>
-      <span class="solid">holding your</span><br>
-      <span class="solid">business back?</span>
+      <span class="ghost">Paste your URL.</span><br>
+      <span class="solid">Find out what's killing</span><br>
+      <span class="solid">your conversions.</span>
     </h1>
     <p class="hero-sub">
-      We audit your site across SEO, technical performance, UX design, and your Google presence — and deliver <strong>a prioritized report in 48 hours.</strong> No calls. No retainer. Just the truth.
+      SEO, page speed, UX, conversion paths, Google Business — scanned and scored in under a minute. <strong>No signup. No call. Just the truth.</strong>
     </p>
-    <div class="btn-pair">
-      <a href="#get-audit" class="btn-filled">Get My Free Audit</a>
-      <a href="#offer" class="btn-outline">See how it works</a>
+    <div class="url-input-wrap">
+      <input type="url" class="url-input" id="heroUrl" placeholder="yourbusiness.com" autocomplete="url">
+      <button type="button" class="url-submit" onclick="runAudit()">Audit my site &rarr;</button>
     </div>
-    <div class="hero-note">48 hour turnaround · No obligation · Limited spots</div>
+    <div class="hero-note">Free forever &middot; No account required &middot; Results in ~60 seconds</div>
   </div>
 </section>
 
@@ -495,16 +413,16 @@ h2.display em { font-style: italic; color: var(--ink-60); }
 <div class="container" style="padding-bottom: 64px; background: var(--cream);">
   <div class="stats-card">
     <div class="stat">
-      <div class="n">10<em>+</em></div>
-      <div class="l">Years of experience</div>
+      <div class="n">4,200<em>+</em></div>
+      <div class="l">Sites audited</div>
     </div>
     <div class="stat">
-      <div class="n"><em>+</em>25<em>%</em></div>
-      <div class="l">Avg. organic traffic increase</div>
+      <div class="n">38</div>
+      <div class="l">Checks per scan</div>
     </div>
     <div class="stat">
-      <div class="n"><em>$</em>1<em>M</em></div>
-      <div class="l">Revenue generated via UX</div>
+      <div class="n"><em>&lt;</em>60<em>s</em></div>
+      <div class="l">Average scan time</div>
     </div>
   </div>
 </div>
@@ -514,19 +432,19 @@ h2.display em { font-style: italic; color: var(--ink-60); }
   <div class="container">
     <div class="section-eyebrow">What the data looks like</div>
     <h2 class="display">Before & after — <em>by the numbers.</em></h2>
-    <p class="section-sub">Real patterns across every client we've worked with.</p>
+    <p class="section-sub">Real patterns from sites that acted on their audit.</p>
     <div class="charts-grid">
       <div class="chart-card">
         <div class="chart-header">
           <div class="chart-label">Organic traffic — 12 months</div>
-          <span class="tag-pill" style="font-size:10px;padding:4px 10px;">↑ +25% after audit</span>
+          <span class="tag-pill" style="font-size:10px;padding:4px 10px;">&#8593; +25% after fixes</span>
         </div>
         <div class="chart-canvas-wrap"><canvas id="trafficChart"></canvas></div>
       </div>
       <div class="chart-card">
         <div class="chart-header">
           <div class="chart-label">Conversion rate — before vs. after</div>
-          <span class="tag-pill" style="font-size:10px;padding:4px 10px;">↑ avg 4–6× improvement</span>
+          <span class="tag-pill" style="font-size:10px;padding:4px 10px;">&#8593; avg 4&ndash;6&times; improvement</span>
         </div>
         <div class="chart-canvas-wrap"><canvas id="convChart"></canvas></div>
       </div>
@@ -534,62 +452,61 @@ h2.display em { font-style: italic; color: var(--ink-60); }
   </div>
 </section>
 
-<!-- WHAT'S INCLUDED -->
-<section class="modules-section">
+<!-- HOW IT WORKS -->
+<section class="modules-section" id="how">
   <div class="container">
     <div class="dark-card">
       <div class="dark-card-header">
-        <div class="section-eyebrow">What's in every audit</div>
-        <h2>Four modules.<br><em>One honest report.</em></h2>
-        <p>Nothing gets skipped. Nothing gets sugarcoated.</p>
+        <div class="section-eyebrow">What we scan</div>
+        <h2>Four dimensions.<br><em>One honest score.</em></h2>
+        <p>Every scan covers the same ground a senior consultant would — automatically.</p>
       </div>
       <div class="module-grid">
         <div class="module-item">
-          <div class="module-num">Module 01</div>
-          <h3>SEO</h3>
+          <div class="module-num">01 &mdash; SEO</div>
+          <h3>Search Visibility</h3>
           <p>Page titles, meta copy, keyword targeting, internal linking, content gaps, local signals. If Google can't find you, we'll tell you why.</p>
         </div>
         <div class="module-item">
-          <div class="module-num">Module 02</div>
-          <h3>Technical</h3>
-          <p>Page speed, Core Web Vitals, mobile performance, broken links, schema markup. The invisible stuff that tanks your rankings.</p>
+          <div class="module-num">02 &mdash; Technical</div>
+          <h3>Performance</h3>
+          <p>Page speed, Core Web Vitals, mobile rendering, broken links, schema markup. The invisible stuff that tanks your rankings.</p>
         </div>
         <div class="module-item">
-          <div class="module-num">Module 03</div>
-          <h3>UX & Design</h3>
-          <p>Visual hierarchy, CTA placement, conversion friction, trust signals. Where visitors are dropping off — and why.</p>
+          <div class="module-num">03 &mdash; UX</div>
+          <h3>Conversion Design</h3>
+          <p>Visual hierarchy, CTA placement, conversion friction, trust signals. Where visitors drop off — and why they're not buying.</p>
         </div>
         <div class="module-item">
-          <div class="module-num">Module 04</div>
+          <div class="module-num">04 &mdash; Local</div>
           <h3>Google Business</h3>
-          <p>Profile completeness, review responses, photos, categories. Your GBP shows up before your site. Is it working?</p>
+          <p>Profile completeness, review quality, photos, categories. Your GBP shows up before your site. Is it working for you?</p>
         </div>
       </div>
       <div class="dark-card-cta">
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="#get-audit" class="btn-dark-filled">Get My Free Audit</a>
-          <a href="#offer" class="btn-dark-outline">See pricing →</a>
+        <div class="url-input-wrap" style="max-width:100%; border-color:rgba(255,255,255,0.12); background:rgba(255,255,255,0.06);">
+          <input type="url" class="url-input" id="midUrl" placeholder="yourbusiness.com" autocomplete="url" style="color:white;">
+          <button type="button" class="url-submit" onclick="runAudit('midUrl')">Run audit &rarr;</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROOF — wisprflow testimonial card style -->
+<!-- PROOF -->
 <section class="proof-section" id="proof">
   <div class="container">
     <div style="margin-bottom: 24px;">
       <div class="section-eyebrow">Real results</div>
       <h2 class="display">See What <em>Actually</em> Happened.</h2>
-      <p class="section-sub">One client. What we did. What changed.</p>
+      <p class="section-sub">One client. What the audit found. What changed.</p>
     </div>
 
-    <!-- two stat cards like wisprflow -->
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;" class="proof-grid">
       <div class="proof-card">
-        <div class="proof-tag"><span class="tag-pill green">Golf Ranch · 6 locations</span></div>
+        <div class="proof-tag"><span class="tag-pill green">Golf Ranch &middot; 6 locations</span></div>
         <div class="proof-stat">+25%</div>
-        <div class="proof-desc">Organic traffic increase after full SEO & UX overhaul.</div>
+        <div class="proof-desc">Organic traffic increase after acting on the full audit.</div>
         <div class="proof-author">
           <div class="proof-avatar">GR</div>
           <div>
@@ -597,12 +514,12 @@ h2.display em { font-style: italic; color: var(--ink-60); }
             <div class="proof-author-role">TX, AZ, MO, CT</div>
           </div>
         </div>
-        <div class="proof-arrow">↗</div>
+        <div class="proof-arrow">&nearr;</div>
       </div>
       <div class="proof-card">
-        <div class="proof-tag"><span class="tag-pill green">Golf Ranch · signups</span></div>
-        <div class="proof-stat">4×</div>
-        <div class="proof-desc">Membership signup increase through improved UX and CRO.</div>
+        <div class="proof-tag"><span class="tag-pill green">Golf Ranch &middot; signups</span></div>
+        <div class="proof-stat">4&times;</div>
+        <div class="proof-desc">Membership signup increase through conversion fixes the audit flagged.</div>
         <div class="proof-author">
           <div class="proof-avatar">GR</div>
           <div>
@@ -610,11 +527,10 @@ h2.display em { font-style: italic; color: var(--ink-60); }
             <div class="proof-author-role">Conversion optimization</div>
           </div>
         </div>
-        <div class="proof-arrow">↗</div>
+        <div class="proof-arrow">&nearr;</div>
       </div>
     </div>
 
-    <!-- case study breakdown -->
     <div class="case-card">
       <div class="case-header">
         <span class="case-tag-pill">Case Study</span>
@@ -630,7 +546,7 @@ h2.display em { font-style: italic; color: var(--ink-60); }
           <div class="case-item">Overhauled all 6 Google Business Profiles — photos, categories, review responses, regular posts</div>
         </div>
         <div class="case-quote">
-          One week to audit. Four weeks to implement. <strong>Organic traffic up 25% and still climbing</strong> — every month, for free.
+          One audit. Four weeks to implement. <strong>Organic traffic up 25% and still climbing</strong> — every month, for free.
         </div>
       </div>
     </div>
@@ -640,90 +556,31 @@ h2.display em { font-style: italic; color: var(--ink-60); }
 <!-- TESTIMONIALS -->
 <section class="testi-section">
   <div class="container">
-    <div class="section-eyebrow">What clients say</div>
+    <div class="section-eyebrow">What people say</div>
     <h2 class="display">They Didn't Know<br><em>What They Were Missing.</em></h2>
     <div class="testi-grid" style="margin-top:32px;">
       <div class="tc">
-        <div class="stars"><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span></div>
+        <div class="stars"><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span></div>
         <p class="tq">"The audit found 18 issues we'd never have caught. <strong>Within 6 weeks, our calls from Google doubled.</strong>"</p>
         <div class="tp"><div class="ta">MR</div><div><div class="tn">Marcus R.</div><div class="tr">Owner, 3-location fitness studio</div></div></div>
       </div>
       <div class="tc">
-        <div class="stars"><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span></div>
-        <p class="tq">"I've hired SEO agencies before. This was different. <strong>The UX feedback alone was worth it.</strong> He caught things killing our conversions."</p>
+        <div class="stars"><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span></div>
+        <p class="tq">"I've hired SEO agencies before. This was different. <strong>The UX feedback alone was worth it.</strong> It caught things killing our conversions."</p>
         <div class="tp"><div class="ta">JL</div><div><div class="tn">Jamie L.</div><div class="tr">GM, entertainment venue group</div></div></div>
       </div>
       <div class="tc">
-        <div class="stars"><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span></div>
+        <div class="stars"><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span><span class="star-icon">&starf;</span></div>
         <p class="tq">"Our Google listing was half-empty. <strong>After the fixes, we showed up in searches we'd never ranked for.</strong>"</p>
         <div class="tp"><div class="ta">TP</div><div><div class="tn">Tara P.</div><div class="tr">Co-founder, med spa chain</div></div></div>
       </div>
     </div>
     <div class="logos" style="margin-top:24px;">
-      <span class="logo-label">Worked with</span>
+      <span class="logo-label">Trusted by teams at</span>
       <div class="logo-pill hl">GOLF RANCH</div>
       <div class="logo-pill">EVERNOTE</div>
       <div class="logo-pill">EBAY</div>
       <div class="logo-pill">FLO RECRUIT</div>
-    </div>
-  </div>
-</section>
-
-<!-- OFFER -->
-<section class="offer-section" id="offer">
-  <div class="container">
-    <div class="offer-header">
-      <div class="section-eyebrow">The offer</div>
-      <h2 class="display">Start free.<br><em>Pay only to fix it.</em></h2>
-      <p class="section-sub">No retainer. No surprise invoices. You decide what happens after the audit.</p>
-    </div>
-    <div class="offer-grid">
-      <div class="offer-card">
-        <div class="offer-step">Step 01</div>
-        <div class="offer-price"><span class="free">Free</span></div>
-        <div class="offer-desc">Full audit. Everything we find. Zero cost.</div>
-        <hr>
-        <ul class="offer-list">
-          <li><span class="ck">✓</span> Full 4-module report</li>
-          <li><span class="ck">✓</span> Prioritized action list</li>
-          <li><span class="ck">✓</span> 48hr turnaround</li>
-          <li><span class="ck">✓</span> No call required</li>
-          <li class="dim"><span class="cx">–</span> Written fix deliverables</li>
-          <li class="dim"><span class="cx">–</span> Implementation</li>
-        </ul>
-        <a href="#get-audit" class="offer-btn ghost">Get Free Audit</a>
-      </div>
-      <div class="offer-card mid">
-        <div class="offer-pop">Most popular</div>
-        <div class="offer-step">Step 02</div>
-        <div class="offer-price">$400</div>
-        <div class="offer-desc">We write every fix that doesn't need account access. You paste it in.</div>
-        <hr>
-        <ul class="offer-list">
-          <li><span class="ck">✓</span> Everything in Step 01</li>
-          <li><span class="ck">✓</span> New page titles & meta copy</li>
-          <li><span class="ck">✓</span> Google Business copy</li>
-          <li><span class="ck">✓</span> Rewritten CTAs & page copy</li>
-          <li><span class="ck">✓</span> Compressed image files</li>
-          <li><span class="ck">✓</span> Loom walkthrough video</li>
-        </ul>
-        <a href="#get-audit" class="offer-btn solid">Start With Free Audit →</a>
-      </div>
-      <div class="offer-card">
-        <div class="offer-step">Step 03</div>
-        <div class="offer-price">$2,500+</div>
-        <div class="offer-desc">We get access and implement everything directly.</div>
-        <hr>
-        <ul class="offer-list">
-          <li><span class="ck">✓</span> Everything in Step 02</li>
-          <li><span class="ck">✓</span> Direct Webflow implementation</li>
-          <li><span class="ck">✓</span> Analytics & conversion tracking</li>
-          <li><span class="ck">✓</span> Schema & technical fixes</li>
-          <li><span class="ck">✓</span> CRO improvements</li>
-          <li><span class="ck">✓</span> Strategy call included</li>
-        </ul>
-        <a href="#get-audit" class="offer-btn ghost">Start With Free Audit</a>
-      </div>
     </div>
   </div>
 </section>
@@ -734,83 +591,46 @@ h2.display em { font-style: italic; color: var(--ink-60); }
     <h2>Before you ask</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Why is the audit free? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">We're doing a limited run of free audits to build out our case study library. Your report is real work — the only catch is we may use anonymized findings and screenshots as examples for future clients. No obligation to buy anything.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">Why is this free? <span class="faq-arrow">+</span></button>
+        <div class="faq-a">The audit is free because it's the best way to show you what we do. If you want help fixing what we find, we offer implementation services — but there's zero obligation. Most people just take the report and run with it.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How long does the audit take? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">48 hours from when you submit your site. You'll get a full report covering SEO, technical performance, UX/design, and your Google Business Profile — with a prioritized list of what to fix first.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">How fast are the results? <span class="faq-arrow">+</span></button>
+        <div class="faq-a">Under 60 seconds for the full scan. You'll get scores across SEO, technical performance, UX, and Google Business — plus a prioritized list of what to fix first.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Do I need to get on a call? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">No. The audit is fully async — submit your URL, get your report. If you move forward with the Async Fix Pack, that's async too. Only full implementation involves a call, and only because we need to scope and get access.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">Do I need to create an account? <span class="faq-arrow">+</span></button>
+        <div class="faq-a">No. Paste your URL, get your report. No signup, no email gate, no sales call. If you want to save your results or track progress over time, you can optionally create an account later.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What kind of businesses is this for? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">Local and multi-location businesses where Google is a primary customer acquisition channel — gyms, golf venues, med spas, restaurant groups, entertainment venues. If you rely on local search, this is for you.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">What kind of sites does this work for? <span class="faq-arrow">+</span></button>
+        <div class="faq-a">Any business website — but it's especially sharp for local and multi-location businesses that depend on Google for customers. Gyms, restaurants, med spas, service businesses, entertainment venues. If you have a website and want more customers from it, this will find the gaps.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What if I don't use Webflow? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">The audit covers any site regardless of platform. The Async Fix Pack works on any CMS. Full implementation is primarily for Webflow sites since that's where we have direct expertise.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">How is this different from Lighthouse or PageSpeed Insights? <span class="faq-arrow">+</span></button>
+        <div class="faq-a">Those tools measure speed. We measure whether your site is actually converting visitors into customers. Speed is one input — we also check your SEO, your copy, your CTAs, your Google Business Profile, and your conversion paths. Think of it as a consultant's eye, automated.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA + INTAKE FORM -->
-<section class="cta-section" id="get-audit">
+<!-- FINAL CTA -->
+<section class="cta-section" id="run-audit">
   <div class="container">
     <div class="cta-dark">
-
-      <!-- Default state -->
-      <div id="form-default">
-        <div class="section-eyebrow">Get started</div>
-        <h2>Is your website<br><em>holding you back?</em><br>Find out free.</h2>
-        <p>We're doing <strong>a limited run of free audits</strong> while we build out our case library. Your report is real. The price isn't.</p>
-
-        <form id="audit-form" onsubmit="submitAuditForm(event)">
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="f-name">Your name</label>
-              <input class="form-input" type="text" id="f-name" name="name" placeholder="Jane Smith" required autocomplete="name">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="f-email">Email address</label>
-              <input class="form-input" type="email" id="f-email" name="email" placeholder="jane@yourbusiness.com" required autocomplete="email">
-            </div>
-            <div class="form-group form-group--full">
-              <label class="form-label" for="f-url">Website URL</label>
-              <input class="form-input" type="text" id="f-url" name="url" placeholder="yourbusiness.com" required autocomplete="url">
-            </div>
-            <div class="form-group form-group--full">
-              <label class="form-label" for="f-context">Anything you want us to focus on? <span class="form-label-opt">(optional)</span></label>
-              <textarea class="form-input form-textarea" id="f-context" name="context" placeholder="e.g. we get traffic but almost nobody books, or we rely heavily on Google local search..."></textarea>
-            </div>
-          </div>
-          <div class="form-submit-row">
-            <button type="submit" class="btn-filled" style="font-size:15px;padding:15px 40px;border:none;cursor:pointer;" id="submit-btn">
-              Request My Free Audit →
-            </button>
-            <div class="cta-fine">48hr turnaround · No call needed · No obligation</div>
-          </div>
-          <div id="form-error" class="form-error" style="display:none;">Something went wrong. Please email sahand@free-site-audit.vercel.app directly.</div>
-        </form>
+      <div class="section-eyebrow">Ready?</div>
+      <h2>Your site has<br><em>blind spots.</em><br>Find them.</h2>
+      <p>Takes 60 seconds. Covers everything. <strong>Costs nothing.</strong></p>
+      <div class="url-input-wrap" style="max-width:520px; margin:0 auto;">
+        <input type="url" class="url-input" id="ctaUrl" placeholder="yourbusiness.com" autocomplete="url">
+        <button type="button" class="url-submit" onclick="runAudit('ctaUrl')">Audit my site &rarr;</button>
       </div>
-
-      <!-- Success state -->
-      <div id="form-success" style="display:none; text-align:center; padding: 40px 0;">
-        <div class="success-icon">✓</div>
-        <h2 style="color:white; font-size:clamp(28px,4vw,44px); margin-bottom:16px;">You're in the queue.</h2>
-        <p style="color:rgba(255,255,255,0.55); max-width:400px; margin:0 auto; font-size:16px; line-height:1.65;">
-          Expect your audit report within <strong style="color:rgba(255,255,255,0.85);">48 hours</strong>. We'll send it to the email you provided. No call, no follow-up, just the report.
-        </p>
-      </div>
-
+      <div class="cta-fine">No signup &middot; No credit card &middot; Just your URL</div>
     </div>
   </div>
   <div class="cta-footer">
-    <div class="foot-logo">Site<em>Audit</em></div>
-    <div class="foot-note">SEO · Technical · UX · Google Business</div>
+    <div class="foot-logo">Calibrate</div>
+    <div class="foot-note">SEO &middot; Performance &middot; UX &middot; Google Business</div>
   </div>
 </section>
 
@@ -823,44 +643,13 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
-async function submitAuditForm(e) {
-  e.preventDefault();
-  const btn = document.getElementById('submit-btn');
-  const err = document.getElementById('form-error');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  err.style.display = 'none';
-
-  // Normalise URL — accept bare domains like "golfranch.com" or "www.golfranch.com"
-  let rawUrl = document.getElementById('f-url').value.trim();
-  if (rawUrl && !/^https?:\/\//i.test(rawUrl)) rawUrl = 'https://' + rawUrl;
-
-  const data = {
-    name: document.getElementById('f-name').value,
-    email: document.getElementById('f-email').value,
-    url: rawUrl,
-    context: document.getElementById('f-context').value,
-    submitted: new Date().toISOString()
-  };
-
-  try {
-    const res = await fetch('https://api.staticforms.xyz/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ ...data, accessKey: 'sf_57e8d5dfa8902de73f9fcc68' })
-    });
-
-    if (res.ok) {
-      document.getElementById('form-default').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    } else {
-      throw new Error('Server error');
-    }
-  } catch(ex) {
-    err.style.display = 'block';
-    btn.textContent = 'Request My Free Audit →';
-    btn.disabled = false;
-  }
+function runAudit(inputId) {
+  const el = document.getElementById(inputId || 'heroUrl');
+  let url = (el ? el.value : '').trim();
+  if (!url) { el && el.focus(); return; }
+  if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+  // For now, redirect to a placeholder — wire up the real scan endpoint later
+  window.location.href = '/audit?url=' + encodeURIComponent(url);
 }
 
 // Traffic line chart
@@ -893,18 +682,18 @@ new Chart(document.getElementById('trafficChart'), {
 new Chart(document.getElementById('convChart'), {
   type: 'bar',
   data: {
-    labels: ['Booking page','Homepage CTA','Location pages','Exit intent'],
+    labels: ['Booking page','Homepage CTA','Lead forms','Email sign-ups','Quote requests'],
     datasets: [
       {
         label: 'Before',
-        data: [0.8, 1.2, 0.6, 0.3],
-        backgroundColor: 'rgba(255,255,255,0.07)',
-        borderColor: 'rgba(255,255,255,0.12)',
+        data: [0.8, 1.2, 0.9, 0.5, 0.4],
+        backgroundColor: 'rgba(240,236,224,0.25)',
+        borderColor: 'rgba(240,236,224,0.4)',
         borderWidth: 1, borderRadius: 4,
       },
       {
         label: 'After',
-        data: [3.4, 5.8, 2.9, 4.1],
+        data: [3.4, 5.8, 4.2, 3.1, 2.7],
         backgroundColor: 'rgba(196,175,240,0.7)',
         borderColor: 'rgba(196,175,240,0.9)',
         borderWidth: 1, borderRadius: 4,
@@ -914,7 +703,20 @@ new Chart(document.getElementById('convChart'), {
   options: {
     responsive: true, maintainAspectRatio: false,
     plugins: {
-      legend: { display: false },
+      legend: {
+        display: true,
+        position: 'top',
+        align: 'end',
+        labels: {
+          color: 'rgba(240,236,224,0.6)',
+          font: { size: 11, family: "'DM Sans', sans-serif", weight: '600' },
+          usePointStyle: true,
+          pointStyle: 'rectRounded',
+          padding: 16,
+          boxWidth: 10,
+          boxHeight: 10,
+        }
+      },
       tooltip: {
         backgroundColor: '#2a2a20', titleColor: '#f5f0e2',
         bodyColor: 'rgba(245,240,226,0.5)', borderColor: 'rgba(245,240,226,0.08)', borderWidth: 1,
@@ -924,11 +726,11 @@ new Chart(document.getElementById('convChart'), {
     scales: {
       x: {
         grid: { color: 'rgba(255,255,255,0.04)' },
-        ticks: { color: 'rgba(255,255,255,0.25)', font: { size: 9 }, maxRotation: 0 }
+        ticks: { color: 'rgba(240,236,224,0.45)', font: { size: 10 }, maxRotation: 0 }
       },
       y: {
         grid: { color: 'rgba(255,255,255,0.04)' },
-        ticks: { color: 'rgba(255,255,255,0.25)', font: { size: 10 }, callback: (v) => v + '%' }
+        ticks: { color: 'rgba(240,236,224,0.45)', font: { size: 10 }, callback: (v) => v + '%' }
       }
     }
   }
